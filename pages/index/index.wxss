@@ -1,1 +1,112 @@
 /**index.wxss**/
+/* 首页轮播图 */
+.banners {
+  width: 100%;
+  height: 300rpx;
+}
+
+.banners image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 首页导航栏 */
+.navContainer {
+  display: flex;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+
+.navItem .iconfont {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100rpx;
+  background-color: rgb(240, 19, 19);
+  font-size: 50rpx;
+  color: #fff;
+  margin: 20rpx 0;
+}
+
+.navItem text {
+  font-size: 26rpx;
+}
+
+/* 首页推荐栏 */
+.recommendContainer {
+  padding: 20rpx;
+}
+
+/* 首页内容栏目 */
+.recommendScroll {
+  display: flex;
+}
+
+.scrollItem {
+  width: 200rpx;
+  margin-right: 20rpx;
+}
+
+.scrollItem image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+
+.scrollItem text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; /* 设置对齐模式 */
+  -webkit-line-clamp: 2; /* 设置多行的行数 */
+}
+/* 首页排行榜 */
+.topList {
+  padding: 20rpx;
+}
+
+.topListSwiper {
+  display: flex;
+  width: 96%;
+  background-color: #fbfbfb;
+  height: 400rpx;
+}
+
+.topListSwiper .musicItem .title {
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+
+.topListSwiper .musicItem .musicList {
+  display: flex;
+  align-items: center;
+  margin: 5rpx;
+}
+
+.topListSwiper .musicItem .musicList image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+
+.topListSwiper .musicItem .musicList .index {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.topListSwiper .musicItem .musicList .title {
+  height: 100rpx;
+  line-height: 100rpx;
+  max-width: 400rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

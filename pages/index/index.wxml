@@ -1,4 +1,32 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
-  主页
+  <!-- 首页轮播图区域 -->
+  <swiper class="banners" indicator-dots indicator-color="ivory" circular indicator-active-color="#d43c33" autoplay>
+    <swiper-item wx:for="{{banners}}">
+      <image src="{{item.imageUrl}}" alt="轮播"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 首页导航栏 -->
+  <view class="navContainer">
+    <view class="navItem">
+      <text class="iconfont icon-tuijian"></text>
+      <text>每日推荐</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-15"></text>
+      <text>歌单</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-paihangbang"></text>
+      <text>排行榜</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-diantai"></text>
+      <text>电台</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-gedan"></text>
+      <text>直播</text>
+    </view>
+  </view>
 </view>
