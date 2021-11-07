@@ -2,10 +2,16 @@
 let startY = 0  //手指起始坐标
 let moveY = 0 //手指当前坐标
 let moveDistance = 0  //手指移动距离
+
+import { request } from "../../api/request";
+
 Page({
   data: {
     coverTransform: 'translateY(0)',
-    coverTranstion: ''
+    coverTranstion: '',
+    // 保存用户信息
+    userInfo: {},
+    recentPlayList: []
   },
   handleTouchStart(e) {
     startY = e.touches[0].clientY
@@ -30,4 +36,31 @@ Page({
       coverTranstion: 'transform .5s linear'
     })
   },
+  switchLogin() {
+    wx.navigateTo({
+      url: '/pages/login/login'
+    })
+  },
+  // 获取最近历史记录
+  getRecentPlayList(uid) {
+    // type=1获取最近一周的播放
+    request("user/record", {uid, type: 1}).then(res => {
+      this.setData({
+        // 只截取最近10条播放记录
+        recentPlayList: res.weekData.slice(0, 10)
+      });
+    });
+  },
+
+  // 生命周期
+  onLoad: function(options) {
+    const userInfo = JSON.parse(wx.getStorageSync('userInfo'))
+    if(userInfo) {
+      this.setData({
+        userInfo: userInfo
+      })
+      // 发送获取用户id
+      this.getRecentPlayList(userInfo.userId)
+    }
+  }
 })

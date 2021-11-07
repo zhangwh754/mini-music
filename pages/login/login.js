@@ -51,7 +51,11 @@ Page({
           icon: 'success',
           duration: 2000
         })
-        wx.switchTab('/pages/personal/personal')
+        // 请求并保存本地用户的昵称和头像
+        wx.setStorageSync('userInfo', JSON.stringify(res.profile))
+        wx.switchTab({
+          url: '/pages/personal/personal'
+        })
       }
     });
   }
