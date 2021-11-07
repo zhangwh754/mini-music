@@ -47,7 +47,7 @@
     "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.4",
+  "libVersion": "2.20.1",
   "appid": "wxfe35f35f085ca62b",
   "projectname": "mini-music",
   "debugOptions": {
