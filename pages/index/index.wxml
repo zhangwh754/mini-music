@@ -2,7 +2,7 @@
 <view class="container">
   <!-- 首页轮播图区域 -->
   <swiper class="banners" indicator-dots indicator-color="ivory" circular indicator-active-color="#d43c33" autoplay>
-    <swiper-item wx:for="{{banners}}">
+    <swiper-item wx:for="{{banners}}" wx:key="index">
       <image src="{{item.imageUrl}}" alt="轮播"></image>
     </swiper-item>
   </swiper>
