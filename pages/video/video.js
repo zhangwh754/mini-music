@@ -37,7 +37,8 @@ Page({
             nickname: item.data.creator.nickname,  //创建者昵称
             commentCount: item.data.commentCount,  //评论数量
             praisedCount: item.data.praisedCount,  //点赞数量
-            praised: item.data.praised  //该用户是否点赞了
+            praised: item.data.praised,  //该用户是否点赞了
+            id: item.data.vid //该视频id
           })
           this.setData({
             videoList: videoArr
@@ -52,6 +53,14 @@ Page({
       icon: 'error',
       duration: 2000
     })
+  },
+  // 控制视频不要同时播放的方法
+  handlePlay(e) {
+    const id = e.currentTarget.id
+    console.log(this.videoContext);
+    this.id !== id && this.videoContext && this.videoContext.stop()
+    this.id = id
+    this.videoContext = wx.createVideoContext(id)
   },
 
   onLoad: function() {

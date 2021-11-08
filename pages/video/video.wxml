@@ -13,7 +13,7 @@
   <!-- 视频列表 -->
   <scroll-view scroll-y class="videoScroll">
     <view class="videoItem" wx:for="{{videoList}}" wx:key="index">
-      <video src="{{item.url}}" />
+      <video src="{{item.url}}" bindplay="handlePlay" id="{{item.id}}" />
       <!-- 视频标题 -->
       <view class="content">{{item.title}}</view>
       <!-- 视频粗略信息 -->
