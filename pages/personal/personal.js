@@ -53,14 +53,14 @@ Page({
   },
 
   // 生命周期
-  onLoad: function(options) {
+  onShow: function(options) {
+    // 如果本地没有存储userInfo
+    if(!wx.getStorageSync('userInfo')) { return }
     const userInfo = JSON.parse(wx.getStorageSync('userInfo'))
-    if(userInfo) {
-      this.setData({
-        userInfo: userInfo
-      })
-      // 发送获取用户id
-      this.getRecentPlayList(userInfo.userId)
-    }
+    this.setData({
+      userInfo: userInfo
+    })
+    // 发送获取到的用户id
+    this.getRecentPlayList(userInfo.userId)
   }
 })
