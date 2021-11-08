@@ -7,7 +7,8 @@ Page({
     navItem: [],
     currentIndex: 0,
     videoList: [],
-    curVideo: ''
+    curVideo: '',
+    videoUpdateTime: []
   },
   handleSwitch(e) {
     // 点击后显示加载中
@@ -65,6 +66,35 @@ Page({
       curVideo: id
     })
     this.videoContext = wx.createVideoContext(id)
+    let { videoUpdateTime } = this.data
+    const videoItem = videoUpdateTime.find(item => item.id === id)
+    if(videoItem) {
+      this.videoContext.seek(videoItem.currentTime)
+    }
+  },
+  // 监听视频播放进度，存放到videoUpdateTime，播放完成后再清空
+  bindTimeUpdate(e) {
+    const playInfo = {id: e.currentTarget.id, currentTime: e.detail.currentTime}
+    const { videoUpdateTime } = this.data
+    // 如果videoUpdateTime中已经有一项存储了播放时间，就返回这一项更新
+    const videoItem = videoUpdateTime.find(item => item.id === playInfo.id)
+    if(videoItem) {
+      videoItem.currentTime = e.detail.currentTime
+    // 没有就推入新一项
+    } else {
+      videoUpdateTime.push(playInfo)
+    }
+    this.setData({
+      videoUpdateTime
+    })
+  },
+  // 视频播放完成
+  bindEnded(e) {
+    const { videoUpdateTime } = this.data
+    videoUpdateTime.splice(videoUpdateTime.findIndex(item => item.id === e.currentTarget.id), 1)
+    this.setData({
+      videoUpdateTime
+    })
   },
 
   onLoad: function() {
