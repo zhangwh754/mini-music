@@ -4,9 +4,35 @@
   <SearchBar></SearchBar>
   <!-- 导航滑块 -->
   <scroll-view scroll-x scroll-y="false" class="navScroll" enable-flex>
-    <view class="navItem" wx:for="{{navTitle}}" wx:key="id">
+    <view class="navItem" wx:for="{{navItem}}" wx:key="id">
       <view class="navContent {{index===currentIndex ? 'active' : ''}}" bindtap="handleSwitch" data-id="{{index}}">
         {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 视频列表 -->
+  <scroll-view scroll-y class="videoScroll">
+    <view class="videoItem" wx:for="{{videoList}}" wx:key="index">
+      <video src="{{item.url}}" />
+      <!-- 视频标题 -->
+      <view class="content">{{item.title}}</view>
+      <!-- 视频粗略信息 -->
+      <view class="footer">
+        <image class="avatar" src="{{item.avatarUrl}}"></image>
+        <text class="nickName">{{item.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item" bindtap="showNot">
+            <text class="iconfont icon-xihuan1"></text>
+            <text class="count">{{item.praisedCount}}</text>
+          </text>
+          <text class="item" bindtap="showNot">
+            <text class="iconfont icon-pinglun"></text>
+            <text class="count">{{item.commentCount}}</text>
+          </text>
+          <button open-type="share" class="item btn">
+            <text class="iconfont icon-gengduo-shuxiang"></text>
+          </button>
+        </view>
       </view>
     </view>
   </scroll-view>
