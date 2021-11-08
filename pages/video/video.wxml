@@ -1,2 +1,13 @@
-<!--pages/video/video.wxml-->
-<text>pages/video/video.wxml</text>
+<!-- pages/video/video.wxml -->
+<view class="container">
+  <!-- 顶部搜索栏 -->
+  <SearchBar></SearchBar>
+  <!-- 导航滑块 -->
+  <scroll-view scroll-x scroll-y="false" class="navScroll" enable-flex>
+    <view class="navItem" wx:for="{{navTitle}}" wx:key="id">
+      <view class="navContent {{index===currentIndex ? 'active' : ''}}" bindtap="handleSwitch" data-id="{{index}}">
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
