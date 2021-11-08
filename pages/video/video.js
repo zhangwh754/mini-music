@@ -6,7 +6,8 @@ Page({
   data: {
     navItem: [],
     currentIndex: 0,
-    videoList: []
+    videoList: [],
+    curVideo: ''
   },
   handleSwitch(e) {
     // 点击后显示加载中
@@ -18,7 +19,6 @@ Page({
       // 获取的自定义属性id是字符串，先转换为Number类型
       currentIndex: Number(e.currentTarget.dataset.id)
     })
-    console.log(this.data.navItem[e.currentTarget.dataset.id]);
     this.getVideoList(this.data.navItem[e.currentTarget.dataset.id].id)
   },
   // 请求视频数据的方法
@@ -38,7 +38,8 @@ Page({
             commentCount: item.data.commentCount,  //评论数量
             praisedCount: item.data.praisedCount,  //点赞数量
             praised: item.data.praised,  //该用户是否点赞了
-            id: item.data.vid //该视频id
+            id: item.data.vid, //该视频id,
+            coverUrl: item.data.coverUrl  //封面
           })
           this.setData({
             videoList: videoArr
@@ -54,12 +55,15 @@ Page({
       duration: 2000
     })
   },
-  // 控制视频不要同时播放的方法
+  // 控制视频不要同时播放的方法，同时也控制把video和image的显示切换
   handlePlay(e) {
+
     const id = e.currentTarget.id
-    console.log(this.videoContext);
     this.id !== id && this.videoContext && this.videoContext.stop()
     this.id = id
+    this.setData({
+      curVideo: id
+    })
     this.videoContext = wx.createVideoContext(id)
   },
 
