@@ -13,6 +13,8 @@ Page({
       // 获取的自定义属性id是字符串，先转换为Number类型
       currentIndex: Number(e.currentTarget.dataset.id)
     })
+    console.log(this.data.navItem[e.currentTarget.dataset.id]);
+    this.getVideoList(this.data.navItem[e.currentTarget.dataset.id].id)
   },
   // 请求视频数据的方法
   getVideoList(id) {
