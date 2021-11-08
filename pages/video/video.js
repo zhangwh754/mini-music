@@ -9,6 +9,11 @@ Page({
     videoList: []
   },
   handleSwitch(e) {
+    // 点击后显示加载中
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     this.setData({
       // 获取的自定义属性id是字符串，先转换为Number类型
       currentIndex: Number(e.currentTarget.dataset.id)
@@ -23,6 +28,8 @@ Page({
     request("video/group", {id, cookie}).then(res => {
       res.datas.forEach(item => {
         request("video/url", {id: item.data.vid}).then(res => {
+          // 请求到视频数据后关闭加载
+          wx.hideLoading()
           videoArr.push({
             url: res.urls[0].url,  //视频播放链接
             title: item.data.title, //视频标题
@@ -48,6 +55,10 @@ Page({
   },
 
   onLoad: function() {
+    // 立即显示加载中
+    wx.showLoading({
+      title: '加载中',
+    })
     // 1、页面加载完后就请求导航数据（标签名字和对应id）
     request("video/group/list", {}).then(res => {
       this.setData({
