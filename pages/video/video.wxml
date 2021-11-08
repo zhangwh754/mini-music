@@ -13,7 +13,7 @@
   <!-- 视频列表 -->
   <scroll-view scroll-y class="videoScroll">
     <view class="videoItem" wx:for="{{videoList}}" wx:key="index">
-      <video src="{{item.url}}" bindplay="handlePlay" id="{{item.id}}" poster="{{item.coverUrl}}" wx:if="{{curVideo === item.id}}" autoplay />
+      <video src="{{item.url}}" bindplay="handlePlay" id="{{item.id}}" poster="{{item.coverUrl}}" wx:if="{{curVideo === item.id}}" autoplay object-fit="cover" />
       <image src="{{item.coverUrl}}" bindtap="handlePlay" id="{{item.id}}" wx:else />
       <!-- 视频标题 -->
       <view class="content">{{item.title}}</view>
