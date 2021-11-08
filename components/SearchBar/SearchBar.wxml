@@ -1,0 +1,5 @@
+<!-- components/SearchBar/SearchBar.wxml -->
+<view class="searchBar">
+  <icon type='search' class='icons'></icon>
+  <text class="searchText">{{searchText}}</text>
+</view>

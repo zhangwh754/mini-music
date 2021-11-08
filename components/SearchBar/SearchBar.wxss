@@ -1,0 +1,19 @@
+/* components/SearchBar/SearchBar.wxss */
+.searchBar {
+  margin: 10rpx 10rpx;
+  padding: 0 30rpx;
+  border-radius: 50rpx;
+  background-color: #eee;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.searchBar .searchText {
+  color: #bbb;
+}
+
+.searchBar .icons {
+  position: relative;
+  top: 10rpx;
+  margin-right: 10rpx;
+}
