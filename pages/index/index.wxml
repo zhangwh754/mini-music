@@ -8,7 +8,7 @@
   </swiper>
   <!-- 首页导航栏 -->
   <view class="navContainer">
-    <view class="navItem">
+    <view class="navItem" bindtap="switchRecommendList">
       <text class="iconfont icon-tuijian"></text>
       <text>每日推荐</text>
     </view>

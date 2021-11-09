@@ -41,4 +41,9 @@ Page({
       });
     })
   },
+  switchRecommendList() {
+    wx.navigateTo({
+      url: '/pages/recommendSong/recommendSong'
+    })
+  }
 });
