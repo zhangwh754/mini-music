@@ -1,0 +1,72 @@
+/* pages/songPlay/songPlay.wxss */
+.container {
+  position: relative;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .circle {
+  position: relative;
+  z-index: 999;
+  width: 54rpx;
+  height: 54rpx;
+  margin-top: 20rpx;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.container .needle {
+  position: relative;
+  z-index: 99;
+  top: -30rpx;
+  left: 35rpx;
+  width: 128rpx;
+  height: 182rpx;
+}
+
+.container .disContainer {
+  position: relative;
+  top: -160rpx;
+  width: 500rpx;
+  height: 500rpx;
+}
+
+.container .disContainer .disc {
+  width: 100%;
+  height: 100%;
+}
+
+.container .disContainer .musicImg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+}
+
+.container .songInfo {
+  position: relative;
+  top: -135rpx;
+  padding: 0 30rpx;
+}
+
+.container .songInfo .title {
+  font-size: 60rpx;
+  color: #fff;
+  font-weight: 900;
+  max-width: 500rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container .songInfo .author {
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  color: #ccc;
+}

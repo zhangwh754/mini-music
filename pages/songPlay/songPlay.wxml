@@ -1,0 +1,13 @@
+<!-- pages/songPlay/songPlay.wxml -->
+<view class="container">
+  <view class="circle"></view>
+  <image src="/static/images/song/needle.png" class="needle" />
+  <view class="disContainer">
+    <image class="disc" src="/static/images/song/disc.png" />
+    <image class="musicImg" src="/static/images/avatar.jpg" />
+  </view>
+  <view class="songInfo">
+    <view class="title">标题标题标题标题标题</view>
+    <view class="author">作者</view>
+  </view>
+</view>
