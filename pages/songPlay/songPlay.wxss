@@ -36,13 +36,14 @@
 
 .container .disContainer {
   position: relative;
+  animation: rotate 15s infinite 0.4s linear;
   top: -160rpx;
   width: 500rpx;
   height: 500rpx;
 }
 
 .container .disActive {
-  animation: rotate 15s infinite linear;
+  animation-play-state: paused;
 }
 
 @keyframes rotate {

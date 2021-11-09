@@ -2,7 +2,7 @@
 <view class="container">
   <view class="circle"></view>
   <image src="/static/images/song/needle.png" class="needle {{active ? 'needleActive' : ''}}" />
-  <view class="disContainer {{active ? 'disActive' : ''}}">
+  <view class="disContainer {{!active ? 'disActive' : ''}}">
     <image class="disc" src="/static/images/song/disc.png" />
     <image class="musicImg" src="/static/images/avatar.jpg" />
   </view>
