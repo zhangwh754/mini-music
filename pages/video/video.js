@@ -8,7 +8,8 @@ Page({
     currentIndex: 0,
     videoList: [],
     curVideo: '',
-    videoUpdateTime: []
+    videoUpdateTime: [],
+    refresher: false  //保存是否下拉刷新
   },
   handleSwitch(e) {
     // 点击后显示加载中
@@ -43,7 +44,8 @@ Page({
             coverUrl: item.data.coverUrl  //封面
           })
           this.setData({
-            videoList: videoArr
+            videoList: videoArr,
+            refresher: false
           });
         })
       })
@@ -96,6 +98,14 @@ Page({
       videoUpdateTime
     })
   },
+  // 触发下拉刷新
+  async startRefresher() {
+    const { currentIndex, navItem } = this.data
+    await this.getVideoList(navItem[currentIndex].id)
+    this.setData({
+      refresher: false
+    })
+  },
 
   onLoad: function() {
     // 立即显示加载中
@@ -107,7 +117,8 @@ Page({
       this.setData({
         navItem: res.data.slice(0, 8)
       });
-      this.getVideoList(res.data[0].id)
+      // 请求视频数据
+      this.getVideoList(res.data[0].id) //默认offset=0，即第一页
     });
   }
 })
