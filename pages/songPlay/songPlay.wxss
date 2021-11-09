@@ -88,3 +88,26 @@
   font-size: 30rpx;
   color: #ccc;
 }
+
+/* 播放控制面板 */
+.musicControl {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  border-top: 1rpx solid #aaa;
+  width: 100%;
+  display: flex;
+}
+
+.musicControl .iconfont {
+  width: 20%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 50rpx;
+}
+
+.musicControl .big {
+  font-size: 80rpx;
+}

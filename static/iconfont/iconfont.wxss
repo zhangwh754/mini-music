@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'iconfont'; /* Project id 2916570 */
-  src: url('//at.alicdn.com/t/font_2916570_xord3vp2m0h.woff2?t=1636356178540') format('woff2'),
-    url('//at.alicdn.com/t/font_2916570_xord3vp2m0h.woff?t=1636356178540') format('woff'),
-    url('//at.alicdn.com/t/font_2916570_xord3vp2m0h.ttf?t=1636356178540') format('truetype');
+  src: url('//at.alicdn.com/t/font_2916570_d2cy42panft.woff2?t=1636449568732') format('woff2'),
+    url('//at.alicdn.com/t/font_2916570_d2cy42panft.woff?t=1636449568732') format('woff'),
+    url('//at.alicdn.com/t/font_2916570_d2cy42panft.ttf?t=1636449568732') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-24gl-shuffle:before {
+  content: '\ea75';
+}
+
+.icon-zanting:before {
+  content: '\e600';
+}
+
+.icon-shangyishoushangyige:before {
+  content: '\e78a';
+}
+
+.icon-xiayigexiayishou:before {
+  content: '\e7a5';
+}
+
+.icon-24gl-playlistMusic2:before {
+  content: '\ea71';
 }
 
 .icon-gengduo-shuxiang:before {

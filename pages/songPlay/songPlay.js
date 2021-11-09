@@ -3,7 +3,7 @@ Page({
   data: {
     active: false
   },
-  toggle() {
+  handlePlayState() {
     this.setData({
       active: !this.data.active
     })
