@@ -9,7 +9,8 @@ Page({
     videoList: [],
     curVideo: '',
     videoUpdateTime: [],
-    refresher: false  //保存是否下拉刷新
+    refresher: false,  //保存是否下拉刷新,
+    videoListOffset: [] //保存各列表分页信息
   },
   handleSwitch(e) {
     // 点击后显示加载中
@@ -24,15 +25,19 @@ Page({
     this.getVideoList(this.data.navItem[e.currentTarget.dataset.id].id)
   },
   // 请求视频数据的方法
-  getVideoList(id) {
+  getVideoList(id, offset=0) {
     const cookie = wx.getStorageSync('cookie')
-    const videoArr = []
-    request("video/group", {id, cookie}).then(res => {
+    const { videoList } = this.data
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    request("video/group", {id, cookie, offset}).then(res => {
       res.datas.forEach(item => {
         request("video/url", {id: item.data.vid}).then(res => {
           // 请求到视频数据后关闭加载
           wx.hideLoading()
-          videoArr.push({
+          videoList.push({
             url: res.urls[0].url,  //视频播放链接
             title: item.data.title, //视频标题
             avatarUrl: item.data.creator.avatarUrl,  //创建者头像
@@ -44,7 +49,7 @@ Page({
             coverUrl: item.data.coverUrl  //封面
           })
           this.setData({
-            videoList: videoArr,
+            videoList,
             refresher: false
           });
         })
@@ -106,6 +111,16 @@ Page({
       refresher: false
     })
   },
+  // 滚动到底部
+  async scrollToLower() {
+    console.log('滚动到底部');
+    const { currentIndex, navItem, videoListOffset } = this.data
+    await this.getVideoList(navItem[currentIndex].id, videoListOffset[currentIndex].offset)
+    videoListOffset[currentIndex].offset++
+    this.setData({
+      refresher: false
+    })
+  },
 
   onLoad: function() {
     // 立即显示加载中
@@ -114,9 +129,19 @@ Page({
     })
     // 1、页面加载完后就请求导航数据（标签名字和对应id）
     request("video/group/list", {}).then(res => {
+      let { videoListOffset } = this.data
+      // 给每个存储分页信息的对象设置默认分页为1
+      videoListOffset = res.data.slice(0, 8).map(item => (
+        {
+          id: item.id,
+          offset: 1
+        }
+      ))
       this.setData({
-        navItem: res.data.slice(0, 8)
+        navItem: res.data.slice(0, 8),
+        videoListOffset
       });
+
       // 请求视频数据
       this.getVideoList(res.data[0].id) //默认offset=0，即第一页
     });
