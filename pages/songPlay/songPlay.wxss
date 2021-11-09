@@ -30,7 +30,7 @@
   height: 182rpx;
 }
 
-.container .active {
+.container .needleActive {
   transform: rotate(0);
 }
 
@@ -39,6 +39,16 @@
   top: -160rpx;
   width: 500rpx;
   height: 500rpx;
+}
+
+.container .disActive {
+  animation: rotate 15s infinite linear;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 .container .disContainer .disc {
