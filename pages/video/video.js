@@ -145,5 +145,12 @@ Page({
       // 请求视频数据
       this.getVideoList(res.data[0].id) //默认offset=0，即第一页
     });
+  },
+  onShareAppMessage({from}) {
+    return {
+      title: '转发的标题',
+      path: '/pages/video/video',
+      imageUrl: '/static/images/avatar.jpg'
+    }
   }
 })
