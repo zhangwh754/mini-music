@@ -21,10 +21,17 @@
 .container .needle {
   position: relative;
   z-index: 99;
-  top: -30rpx;
+  transform: rotate(-30deg);
+  transform-origin: top;
+  transition: all 0.4s ease-in;
+  top: -35rpx;
   left: 35rpx;
   width: 128rpx;
   height: 182rpx;
+}
+
+.container .active {
+  transform: rotate(0);
 }
 
 .container .disContainer {
