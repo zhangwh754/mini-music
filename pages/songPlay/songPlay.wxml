@@ -4,11 +4,11 @@
   <image src="/static/images/song/needle.png" class="needle {{active ? 'needleActive' : ''}}" />
   <view class="disContainer {{!active ? 'disActive' : ''}}">
     <image class="disc" src="/static/images/song/disc.png" />
-    <image class="musicImg" src="/static/images/avatar.jpg" />
+    <image class="musicImg" src="{{songInfo.imgUrl}}" />
   </view>
   <view class="songInfo">
-    <view class="title">标题标题标题标题标题</view>
-    <view class="author">作者</view>
+    <view class="title">{{songInfo.title}}</view>
+    <view class="author">{{songInfo.author}}</view>
   </view>
   <view class="musicControl">
     <text class="iconfont icon-24gl-shuffle"></text>

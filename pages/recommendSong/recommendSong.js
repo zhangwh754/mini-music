@@ -7,6 +7,22 @@ Page({
     date: {},
     songList: []
   },
+  // 跳转到songplay页面，并传参
+  toSongPlay(e) {
+    const song = {
+      title: e.currentTarget.dataset.song.name,
+      id: e.currentTarget.dataset.song.al.id,
+      author: e.currentTarget.dataset.song.ar[0].name,
+      imgUrl: e.currentTarget.dataset.song.al.picUrl
+    }
+    wx.navigateTo({
+      url: '/pages/songPlay/songPlay',
+      // id=${song.id}&title=${song.title}&author=${song.author}&imgUrl=${song.imgUrl}
+      success(res) {
+        res.eventChannel.emit('sendSongInfo', { song })
+      }
+    })
+  },
 
   onLoad: function() {
     // 获取更新时间

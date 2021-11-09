@@ -13,7 +13,7 @@
       <text class="more">多选</text>
     </view>
     <scroll-view class="listScroll" scroll-y>
-      <view class="scrollItem" wx:for="{{songList}}" wx:key="id">
+      <view class="scrollItem" wx:for="{{songList}}" wx:key="id" data-song="{{item}}" bindtap="toSongPlay">
         <image src="{{item.al.picUrl}}" />
         <view class="listInfo">
           <text class="title">{{item.name}}</text>
