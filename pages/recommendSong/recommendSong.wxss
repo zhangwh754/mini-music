@@ -48,7 +48,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
   padding: 0 20rpx;
   border-radius: 20rpx;
   height: 100rpx;
@@ -57,6 +57,7 @@
 .scrollItem image {
   width: 80rpx;
   height: 80rpx;
+  border-radius: 10rpx;
 }
 
 .scrollItem .listInfo {
@@ -73,6 +74,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.scrollItem .listInfo .title {
+  font-size: 30rpx;
 }
 
 .scrollItem .iconfont {

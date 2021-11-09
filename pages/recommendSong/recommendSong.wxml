@@ -13,11 +13,11 @@
       <text class="more">多选</text>
     </view>
     <scroll-view class="listScroll" scroll-y>
-      <view class="scrollItem" wx:for="{{20}}">
-        <image src="/static/images/logo.png" />
+      <view class="scrollItem" wx:for="{{songList}}" wx:key="id">
+        <image src="{{item.al.picUrl}}" />
         <view class="listInfo">
-          <text class="title">标题标题标题标题标题标题标题标题标题标题标题</text>
-          <text class="author">作者</text>
+          <text class="title">{{item.name}}</text>
+          <text class="author">{{item.ar[0].name}}</text>
         </view>
         <text class="iconfont icon-gengduo-shuxiang"></text>
       </view>
